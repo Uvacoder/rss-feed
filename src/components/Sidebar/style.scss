@@ -1,0 +1,94 @@
+._mySidebar {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  width: 275px;
+  height: 100vh;
+  padding-top: 50px;
+  backdrop-filter: blur(5px) saturate(200%);
+  -webkit-backdrop-filter: blur(16px) saturate(200%);
+  background-color: #ffffff6b;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+
+  h4 {
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  ._addRss {
+    text-align: center;
+    #_addRssBtn {
+      width: 85%;
+      border-radius: 10px;
+      height: 45px;
+      background: #ffffffa6;
+      color: #1890ff96;
+      box-shadow: unset;
+      text-shadow: unset;
+      transition: all 0.3s ease-in-out;
+      border: 2px solid #1890ff96;
+      &:hover {
+        background: #1890ff96;
+        color: white;
+      }
+    }
+  }
+
+  ._sidebarItems {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    ._sidebarItem {
+      width: 85%;
+      cursor: pointer;
+      background-color: #ffffff6b;
+      margin: 4px 0;
+      padding: 10px 20px;
+      border-radius: 10px;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        box-shadow: 0 0 15px #6f6f6f8f;
+      }
+    }
+  }
+}
+
+._inputUrl {
+  width: 100%;
+  border: none;
+  background: #f8f8f8;
+  height: 40px;
+  margin: 0 auto;
+  border-radius: 10px;
+  outline: none;
+  font-size: 1.2rem;
+  padding: 0 10px;
+}
+._inputMessage {
+  margin: 5px 10px;
+  color: #00ac00;
+}
+._checkUrlBtn {
+  margin: 78px 34% 15px;
+  width: 175px;
+  height: 45px;
+  border: none;
+  border-radius: 10px;
+  background: #39cb50;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+// .ant-space {
+//   position: fixed;
+//   transform: translate(-50%, -50%);
+//   top: 40%;
+//   left: 50%;
+// }
