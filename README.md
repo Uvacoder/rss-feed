@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+﻿
+# RSS Feeds Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a Mini RSS Feeds Web App use for get data from Blog which supported RSS.
 
-## Available Scripts
 
-In the project directory, you can run:
+## Tech Stack
 
-### `yarn start`
+**Client:** ReactJS, AntDesign
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Server:** None
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `yarn test`
+## API and Library
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- XMLHttpRequest
 
-### `yarn build`
+- Rss-Parser
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Problems solved
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Fix CORS error when connect XHR and Rss-Parser to the URL
 
-### `yarn eject`
+- Handle error when filter the data
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## How to use?
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1) Click button "Add new RSS", the pop-up panel will show up for input URL
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+2) Input URL into the input (Ex: https://tuoitre.vn/, https://dev.to/) supported RSS
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+3) Click button "Check" and wait for checking whether the URL supported RSS
 
-## Learn More
+4) Check messages show below the input. If its color is green, this URL is valid.
+It will take you about 5 seconds to check, if it checking longer, maybe CORS problem is come up.
+To fix this, click to "https://cors-anywhere.herokuapp.com/corsdemo" and click button "Request temporary access to the demo server", then try step 4 again.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+5) Click button "Add to list" to add this URL, this web app auto change it to RSS URL
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+6) Click on the RSS URL on the left side to fetch RSS Feeds data.
 
-### Code Splitting
+7) Click on the link in Related Post item to access.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Ideas
 
-### Analyzing the Bundle Size
+I wrote a function using XMLHttpRequest to get all the XML of the html file from the URL.
+Then I extracting the link which has rel="alternate" and type="application/rss+xml" and get the href value.
+This value is RSS URL.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Then I wrote a function to get RSS data from the RSS URL by using Rss-Parser Library.
 
-### Making a Progressive Web App
+Show all data to the UI.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Deployment
+Netlify: https://mini-rss-reader.netlify.app/
 
-### Advanced Configuration
+Github: https://github.com/phamdanhdev/rss-feed
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+## 🚀 About Me
+👦 **Ethan Pham**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+✉️ Email: phamdanh.dev@gmail.com
 
-### `yarn build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
