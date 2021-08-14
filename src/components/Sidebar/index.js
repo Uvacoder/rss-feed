@@ -8,6 +8,7 @@ export default function Sidebar({
   addUrlRss,
   urlRssList,
   getFeeds,
+  resetForm,
 }) {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -40,6 +41,7 @@ export default function Sidebar({
   };
 
   const handleCancel = () => {
+    resetForm();
     setIsModalVisible(false);
   };
   return (
@@ -55,6 +57,7 @@ export default function Sidebar({
           onOk={handleOk}
           onCancel={handleCancel}
           okText={modelStatus.addText}
+          destroyOnClose={true}
         >
           <input
             id="_input"

@@ -14,7 +14,7 @@ export default function Feeds() {
     message: "",
     rssUrl: null,
   });
-
+  const [checkCORS, isCheckCORS] = useState(false);
   const [urlRssList, setUrlRssList] = useState([]);
   const [feeds, setFeeds] = useState([]);
 
@@ -53,27 +53,6 @@ export default function Feeds() {
     xhr.send();
   };
 
-  // const fetchXML = async (url) => {
-  //   try {
-  //     let xhr = new XMLHttpRequest();
-  //     xhr.onreadystatechange = async (progressEvent) => {
-  //       if (xhr.readyState === 4 && xhr.status === 200) {
-  //         let xmlData = await xhr.response;
-  //         let parser = new DOMParser();
-  //         let doc = parser.parseFromString(xmlData, "text/html");
-  //         let rssUrl = getRssUrl(doc);
-  //         return getFeeds(rssUrl);
-  //       }
-  //     };
-  //     xhr.open("GET", url, true);
-  //     xhr.send();
-  //   } catch (error) {
-  //     console.log({ error });
-  //     alert("This URL is not available!");
-  //     return;
-  //   }
-  // };
-
   const getRssUrl = (xmlData) => {
     try {
       let linkElements = xmlData.getElementsByTagName("link");
@@ -99,11 +78,6 @@ export default function Feeds() {
 
   const getFeeds = async (rssUrl) => {
     let feed = await parser.parseURL(CORS_PROXY + rssUrl);
-    //   console.log(feed.title);
-
-    //   feed.items.forEach((item) => {
-    //     console.log(item.title + ":" + item.link);
-    //   });
 
     let newData = feed.items.map((item) => ({
       title: item.title,
@@ -121,16 +95,16 @@ export default function Feeds() {
     }
   };
 
+  const resetForm = () => {
+    setCheckInputURL({
+      available: false,
+      message: "",
+      rssUrl: null,
+    });
+  };
+
   return (
     <div>
-      {/* <button
-        onClick={() =>
-          fetchXML("https://cors-anywhere.herokuapp.com/https://tuoitre.vn/")
-        }
-      >
-        Click
-      </button> */}
-
       <div className="_wrapper">
         <div className="_sidebar">
           <Sidebar
@@ -139,6 +113,7 @@ export default function Feeds() {
             addUrlRss={addUrlRss}
             urlRssList={urlRssList}
             getFeeds={getFeeds}
+            resetForm={resetForm}
           />
         </div>
         <div className="_content">
@@ -157,6 +132,25 @@ export default function Feeds() {
           </div>
         </div>
       </div>
+      {!checkCORS ? (
+        <div className="_popUpCheckCors">
+          <div className="_panel">
+            <p>
+              Please click this URL and enable CORS allows before using this
+              app.
+            </p>
+            <a href="https://cors-anywhere.herokuapp.com/corsdemo">
+              https://cors-anywhere.herokuapp.com/corsdemo
+            </a>
+            <br />
+            <button onClick={() => isCheckCORS(true)}>
+              I have clicked and enabled CORS
+            </button>
+          </div>
+        </div>
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 }
