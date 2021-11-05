@@ -12,7 +12,7 @@ export default function FeedItem({ feeds }) {
       <div className="_itemInfo">
         <h5>{feeds.title}</h5>
         <p>{feeds.contentSnippet}</p>
-        <a href={feeds.link} target="_blank">
+        <a href={feeds.link} target="_blank" rel="noreferrer">
           {feeds.link}
         </a>
       </div>
